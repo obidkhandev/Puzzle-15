@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:puzzle_15/screen/controller.dart';
 
-class PuzzleView extends StatefulWidget {
-  const PuzzleView({Key? key}) : super(key: key);
+class PuzzleScreen extends StatefulWidget {
+  const PuzzleScreen({Key? key}) : super(key: key);
 
   @override
-  State<PuzzleView> createState() => _PuzzleViewState();
+  State<PuzzleScreen> createState() => _PuzzleScreenState();
 }
 
-class _PuzzleViewState extends State<PuzzleView> {
+class _PuzzleScreenState extends State<PuzzleScreen> {
   final PuzzleController controller = Get.put(PuzzleController());
 
   @override
@@ -67,12 +67,12 @@ class _PuzzleViewState extends State<PuzzleView> {
                 Navigator.pop(context);
               },
             ),
-            ListTile(
-              title: Text('Option 2'),
-              onTap: () {
-                // Handle drawer option 2
-              },
-            ),
+            // ListTile(
+            //   title: Text('Bizning boshqa loyihalar'),
+            //   onTap: () {
+            //     // Handle drawer option 2
+            //   },
+            // ),
             // Add more list tiles as needed
           ],
         ),
@@ -147,7 +147,7 @@ class _PuzzleViewState extends State<PuzzleView> {
                 aspectRatio: 1,
                 child: Obx(() => Container(
                       decoration: BoxDecoration(
-                        color: Colors.grey.shade400,
+                        color: Color(controller.color.value).withOpacity(0.4),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: GridView.builder(

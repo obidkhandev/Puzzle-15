@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_rx/get_rx.dart';
+import 'package:puzzle_15/screen/view/dialog/my_dialog.dart';
 
 class PuzzleController extends GetxController {
   int gridSize = 4;
@@ -12,12 +12,6 @@ class PuzzleController extends GetxController {
   RxInt elapsedTime = 0.obs;
   RxInt moveCount = 0.obs;
   RxInt color = Colors.lightBlue.value.obs;
-
-
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
 
 
@@ -33,7 +27,9 @@ class PuzzleController extends GetxController {
       Colors.deepPurple.value,
       Colors.red.value,
       Colors.deepOrange.value,
-      Colors.greenAccent.value
+      Colors.greenAccent.value,
+      Colors.indigo.value,
+      Colors.greenAccent.value,
     ];
     color.value = colors[Random().nextInt(colors.length)];
   }
@@ -75,7 +71,7 @@ class PuzzleController extends GetxController {
       if (isSolved()) {
         gameEnded.value = true;
         timer?.cancel();
-        showCongratulationsDialog();
+        showCongratulationsDialog(elapsedTime,moveCount);
       }
     }
   }
@@ -89,22 +85,5 @@ class PuzzleController extends GetxController {
     startTimer();
   }
 
-  void showCongratulationsDialog() {
-    Get.dialog(
-      AlertDialog(
-        title: const Text("Tabriklaymiz!"),
-        content: Text("Siz ${elapsedTime.value} soniyada va ${moveCount.value} urinishda o'yinni muvaffaqiyatli tugatdingiz."),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              Get.back();
-              resetGame();
-            },
-            child: Text('Yana oynash'),
-          ),
-        ],
-      ),
-      barrierDismissible: false,
-    );
-  }
+
 }
