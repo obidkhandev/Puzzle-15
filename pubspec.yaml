@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.6
   get: ^4.6.6
   rename: ^3.0.2
+  icons_launcher: ^2.1.7
+  url_launcher: ^6.2.6
 
 dev_dependencies:
   flutter_test:
@@ -90,3 +92,11 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+icons_launcher:
+  image_path: "assets/images/app_logo.png"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true

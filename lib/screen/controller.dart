@@ -2,10 +2,26 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_rx/get_rx.dart';
 import 'package:puzzle_15/screen/view/dialog/my_dialog.dart';
+
+
+List<int> colors = [
+  Colors.teal.value,
+  Colors.deepPurple.value,
+  Colors.red.value,
+  Colors.greenAccent.value,
+  Colors.indigo.value,
+  Colors.greenAccent.value,
+  Colors.grey.value,
+  Colors.deepOrange.value,
+  Colors.lightBlueAccent.value
+];
+
 
 class PuzzleController extends GetxController {
   int gridSize = 4;
+  // RxList<int> tiles = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].obs;
   RxList<int> tiles = List<int>.generate(16, (index) => index + 1).obs;
   Timer? timer;
   RxBool gameEnded = false.obs;
@@ -22,15 +38,6 @@ class PuzzleController extends GetxController {
   }
 
   void randomColor() {
-    List<int> colors = [
-      Colors.teal.value,
-      Colors.deepPurple.value,
-      Colors.red.value,
-      Colors.deepOrange.value,
-      Colors.greenAccent.value,
-      Colors.indigo.value,
-      Colors.greenAccent.value,
-    ];
     color.value = colors[Random().nextInt(colors.length)];
   }
 
@@ -84,6 +91,4 @@ class PuzzleController extends GetxController {
     timer?.cancel();
     startTimer();
   }
-
-
 }
