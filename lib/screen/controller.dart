@@ -21,7 +21,6 @@ List<int> colors = [
 
 class PuzzleController extends GetxController {
   int gridSize = 4;
-  // RxList<int> tiles = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].obs;
   RxList<int> tiles = List<int>.generate(16, (index) => index + 1).obs;
   Timer? timer;
   RxBool gameEnded = false.obs;

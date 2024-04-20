@@ -44,11 +44,11 @@ class _PuzzleScreenState extends State<PuzzleScreen> {
             DrawerHeader(
               decoration: BoxDecoration(
                 color: Color(controller.color.value),
+                image: DecorationImage(image: AssetImage("assets/images/app_logo.png"),)
               ),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color(controller.color.value),
-                ),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.2,
+                width: double.infinity,
               ),
             ),
             ListTile(
